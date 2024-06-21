@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS.css">
+    <title>JS для начинающих</title>
+</head>
+<body>
+    <header>
+        <h1>JavaScript для начинающих</h1>
+    </header>
+    
+    <button onclick="showWelcomeScreen()">Приветственное окно</button>
+    
+    <section id="introduction">
+        <h2>Что такое JavaScript?</h2>
+        <p>JavaScript — это язык программирования, который позволяет создавать интерактивные веб-страницы. Он используется для разработки динамического контента, игр, приложений и многого другого.</p>
+        <p>Изначально JavaScript был создан, чтобы «сделать веб-страницы живыми».</p>
+        <p>Программы на этом языке называются скриптами. Они могут встраиваться в HTML и выполняться автоматически при загрузке веб-страницы.</p>
+        <p>Скрипты распространяются и выполняются, как простой текст. Им не нужна специальная подготовка или компиляция для запуска.</p>
+    </section>
+    
+    <section id="usage">
+        <h2>Зачем нужен JavaScript?</h2>
+        <p>JavaScript позволяет:</p>
+        <ul>
+            <li>Добавлять интерактивность на сайты</li>
+            <li>Создавать веб-приложения</li>
+            <li>Обрабатывать пользовательские действия</li>
+            <li>Взаимодействовать с сервером</li>
+        </ul>
+        <h3>Когда JavaScript не пригодится?</h3>
+        <p>JavaScript не используется для создания серверных приложений (хотя Node.js расширяет возможности языка на серверной стороне), работы с базами данных или выполнения системных операций.</p>
+    </section>
+
+    <section id="connection">
+        <h2>Как добавить JavaScript в HTML?</h2>
+        <p>Есть два основных способа подключения JS в HTML:</p>
+        <ul>
+            <li>Вставка кода внутри парного тега &lt;script&gt;</li>
+            <li>Подключение внешних файлов</li>
+        </ul>
+        <p>Давайте рассмотрим каждый способ отдельно.</p>
+    </section>
+
+    <section id="first">
+        <h2>Вставка кода внутри парного тега &lt;script&gt;</h2>
+        <p>Самый простой способ вставить JS-код в HTML-страницу — использовать парный тег &lt;script&gt;. Он сообщает браузеру, что всё его содержимое нужно интерпретировать как исполняемый скрипт, а не как текст или HTML-код. </p>
+        <p>В качестве примера добавим на страницу скрипт, который выводит текущие дату и время.</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">&lt;!<span class="hljs-variable_constant_">DOCTYPE</span> html&gt;
+&lt;html lang="ru"&gt;
+&nbsp;&lt;head&gt;
+&nbsp; &nbsp; &lt;meta charset="UTF-8"&gt;
+&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&nbsp; &nbsp; &lt;title&gt;Дата и время&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&nbsp; &nbsp; &lt;script&gt;
+&nbsp; &nbsp; &nbsp; &nbsp; let date = new Date();
+&nbsp; &nbsp; &nbsp; &nbsp; alert("Сейчас " + date);
+&nbsp; &nbsp; &lt;/script&gt;&nbsp;
+&lt;/body&gt; &nbsp;
+&lt;/html&gt;</code></code>
+          </pre>
+        </div>
+        <p>Теперь при загрузке страницы будет появляться уведомление с текущими датой и временем.</p>
+    </section>
+
+    <section id="second">
+        <h2>Подключение внешних файлов</h2>
+        <p>Для подключения JavaScript из внешних файлов тоже используется тег &lt;script&gt;. Только внутри него появляется атрибут src, в котором вы указываете ссылку на JS-файл. Это может быть файл, который вы создали сами и храните рядом с HTML или в другом каталоге. А ещё это может быть файл JS-библиотеки, которая добавляет на страницу нужное вам поведение.</p>
+        <p>В качестве примера возьмём скрипт, который выводит текущие дату и время. Перенесём всю логику в отдельный файл:</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+# Файл time.js
+let date = new Date();
+alert("Сейчас " + date);
+</code></code>
+          </pre>
+        </div>
+        <p>Из файла HTML можно удалить весь код JS. Останется только тег &lt;script&gt;, в котором через атрибут src указана ссылка на файл time.js:</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+            <code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+#Файл time.html
+&lt;!<span class="hljs-variable_constant_">DOCTYPE</span> html&gt;
+&lt;html lang="ru"&gt;
+&nbsp;&lt;head&gt;
+&nbsp; &nbsp; &lt;meta charset="UTF-8"&gt;
+&nbsp; &nbsp; &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+&nbsp; &nbsp; &lt;title&gt;Дата и время&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&nbsp; &nbsp; &lt;script src="./time.js"&gt;&lt;/script&gt;&nbsp;
+&lt;/body&gt; &nbsp;
+&lt;/html&gt;</code></code>
+          </pre>
+        </div>
+        <p>Результат будет таким же — вам снова удалось с помощью JavaScript добавить в HTML div информацию о текущем времени.</p>
+        <p>У такого подхода сразу несколько плюсов:</p>
+        <ul>
+            <li>Содержимое файлов HTML становится проще. В них остаются только контент и ссылки на внешние файлы.</li>
+            <li>Весь JS-код можно держать в одном файле и при необходимости подключать его к разным страницам.</li>
+            <li>Если один скрипт используется несколькими страницами, то он будет загружаться полностью только один раз, а затем использоваться повторно из кэша браузера.</li>
+        </ul>
+    </section>
+
+    <section id="cod">
+        <h2>Структура кода</h2>
+        <p>Начнём изучение языка с рассмотрения основных «строительных блоков» кода.</p>
+        <h3>Инструкции</h3>
+        <p>Инструкции – это синтаксические конструкции и команды, которые выполняют действия.</p>
+        <p>В нашем коде может быть столько инструкций, сколько мы захотим. Инструкции могут отделяться точкой с запятой.</p>
+        <p>Например, здесь мы разделили сообщение «Привет Мир» на два вызова alert:</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+alert('Привет'); alert('Мир');
+</code></code>
+          </pre>
+        </div>
+        <p>Обычно каждую инструкцию пишут на новой строке, чтобы код было легче читать:</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+alert('Привет'); 
+alert('Мир');
+</code></code>
+            </pre>
+        </div>
+        <h3>Точка с запятой</h3>
+        <p>В большинстве случаев точку с запятой можно не ставить, если есть переход на новую строку.</p>
+        <p>Так тоже будет работать:</p>
+        <div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+alert('Привет') 
+alert('Мир')
+</code></code>
+            </pre>
+        </div>
+        <p>В этом случае JavaScript интерпретирует перенос строки как «неявную» точку с запятой. Это называется автоматическая вставка точки с запятой.</p>
+        <p class="Bold">В большинстве случаев новая строка подразумевает точку с запятой. Но «в большинстве случаев» не значит «всегда»!</p>
+        <p>В некоторых ситуациях новая строка всё же не означает точку с запятой. Например:</p>
+<div data-v-3c7af174="" bis_skin_checked="1"><pre class="code-block">
+<code class="hljs"><code class="js hljs language-javascript" data-highlighted="yes">
+alert(3 +
+1
++ 2);
+</code></code>
+            </pre>
+        </div>
+        <p>Код выведет <span class="Bold">6</span>, потому что JavaScript не вставляет здесь точку с запятой. Интуитивно очевидно, что, если строка заканчивается знаком <span class="Bold">"+"</span>, значит, это «незавершённое выражение», поэтому точка с запятой не требуется. И в этом случае всё работает, как задумано.</p>
+        <p class="Bold">Но есть ситуации, где JavaScript «забывает» вставить точку с запятой там, где она нужна.</p>
+    </section>
+    
+    <section id="examples">
+        <h2>Что можно сделать с помощью JavaScript</h2>
+        <p>Ниже представлены задачи вместе с кодом реализации, которые можно выполнить с помощью JS</p>
+        <button onclick="runExample(1)">Задание 1</button>
+        <button onclick="runExample(2)">Задание 2</button>
+        <button onclick="runExample(3)">Задание 3</button>
+        <button onclick="runExample(4)">Задание 4</button>
+        <div contenteditable="true" id="codeOutput"></div>
+        <div id="output"></div>
+        
+    </section>
+    
+    <section id="quiz">
+        <h2>Тест по JavaScript</h2>
+        <button onclick="startQuiz()">Начать тест</button>
+        <div id="quiz-container" style="display: none;">
+        </div>
+        <div id="quiz-result" style="display: none;"></div>
+    </section>
+
+    <div id="welcome-screen" onclick="hideWelcomeScreen()">
+        <h1>Здравствуйте, <span id="username-display"></span>!</h1>
+        <p>Сегодня: <span id="current-date"></span></p>
+    </div>
+<script src="JS.js"></script>
+</body>
+</html>
